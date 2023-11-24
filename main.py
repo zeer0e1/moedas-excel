@@ -12,7 +12,7 @@ options = Options()
 options.headless = True
 
 moedas = ['Real', 'Dolar', 'Euro']
-cotacoes = []
+cottages = []
 
 openBrowser = web.Chrome(service=Service('./chromedriver.exe'), options=options)
 
@@ -37,7 +37,7 @@ for moeda in moedas:
     try:
         new_cot = {moeda: search(moeda)}
         clean_search()
-        cotacoes.append(new_cot)
+        cottages.append(new_cot)
     finally:
         clean_search()
         continue
@@ -51,7 +51,7 @@ formato_moeda = planilha_criada.add_format({'num_format': 'R$#,##0.00'})
 
 celula = 2
 
-for cotacao in cotacoes:
+for cotacao in cottages:
     for i, j in cotacao.items():
         planilha_moedas.write(f'A{celula}', i, formato_moeda)
         planilha_moedas.write(f'B{celula}', j, formato_moeda)
